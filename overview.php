@@ -26,7 +26,7 @@
 		<input type="text" name="brand"><br>
 		<label for="price">Price: </label>
 		<input type="text" name="price"><br>
-		<button type="submit" class="btn btn-primary" name="submit">Add to database</button>
+		<input type="submit" value="Add to database" name="submit">
 	</form>
 
 </body>

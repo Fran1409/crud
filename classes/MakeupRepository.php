@@ -6,6 +6,10 @@
 class MakeupRepository
 {
     private $databaseManager;
+    
+    public $newName;
+    public $newBrand;
+    public $newPrice;
 
     // This class needs a database connection to function
     public function __construct(DatabaseManager $databaseManager)
@@ -15,9 +19,17 @@ class MakeupRepository
 
     public function create()
     {
-        $sql = 'INSERT INTO makeup (id, name, brand, price) VALUES ()';
+        if(!empty($_POST['submit'])){
+            $this->newName = $_POST['makeup'];
+            $this->newBrand = $_POST['brand'];
+            $this->newPrice = $_POST['price'];
 
-        return $this->databaseManager->database->query($sql);
+            $sql = "INSERT INTO makeup (name, brand, price) VALUES ('$this->newName', '$this->newBrand', '$this->newPrice')";
+            $result = $this->databaseManager->databaseconnection->query($sql);
+            
+            return $result;
+        }
+        $this->get();
     }
 
     // Get one
@@ -29,17 +41,11 @@ class MakeupRepository
     // Get all
     public function get()
     {
-        // replace dummy data by real one
-        /* return [
-            ['name' => 'Naked Heat', 'brand' => 'Urban Decay', 'price' => '55.90'],
-            ['name' => 'Naked Honey', 'brand' => 'Urban Decay', 'price' => '55.90'],
-        ]; */
-
         // We get the database connection first, so we can apply our queries with it
         $sql = "SELECT * FROM makeup";
-        $data = $this->databaseManager->databaseconnection->query($sql);
-        var_dump($data);
-        return $data;
+        $result = $this->databaseManager->databaseconnection->query($sql);
+
+        return $result;
     }
 
     public function update()
