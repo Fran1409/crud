@@ -15,7 +15,10 @@
 
 	<ul>
 		<?php foreach ($palettes as $palette) : ?>
-			<li><?= $palette['name'].' - '.$palette['brand'].' - €'.$palette['price'] ?></li>
+			<li><?= $palette['name'].' - '.$palette['brand'].' - €'.$palette['price'].' - '?>
+			<a href="edit.php?editId=<?= $palette['id']?>&name=<?= $palette['name']?>&brand=<?= $palette['brand']?>&price=<?= $palette['price']?>">edit</a>
+			</li>
+			
 		<?php endforeach; ?>
 	</ul>
 
