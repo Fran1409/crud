@@ -10,7 +10,7 @@ class DatabaseManager
     private $password;
     // This one is public, so we can use it outside of this class
     // We could also use a private variable and a getter (but let's not make things too complicated at this point)
-    public $database="collection";
+    public $database="database";
 
     public function __construct(string $host, string $name, string $password)
     {

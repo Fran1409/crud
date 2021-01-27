@@ -29,8 +29,8 @@ class CardRepository
     {
         // TODO: replace dummy data by real one
         return [
-            ['name' => 'dummy one'],
-            ['name' => 'dummy two'],
+            ['name' => 'Naked Heat', 'brand' => 'Urban Decay', 'price' => '55.90'],
+            ['name' => 'Naked Honey', 'brand' => 'Urban Decay', 'price' => '55.90'],
         ];
 
         // We get the database connection first, so we can apply our queries with it
