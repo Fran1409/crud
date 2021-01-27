@@ -11,6 +11,10 @@ class MakeupRepository
     public $newBrand;
     public $newPrice;
 
+    public $updateName;
+    public $updateBrand;
+    public $updatePrice;
+
     // This class needs a database connection to function
     public function __construct(DatabaseManager $databaseManager)
     {
@@ -36,6 +40,7 @@ class MakeupRepository
     public function find()
     {
 
+        
     }
 
     // Get all
@@ -50,6 +55,18 @@ class MakeupRepository
 
     public function update()
     {
+        if(!empty($_POST['update'])){
+            $this->updateName = $_POST['updateName'];
+            $this->updateBrand = $_POST['updateBrand'];
+            $this->updatePrice = $_POST['updatePrice'];
+            $this->id = $_GET['editId'];
+
+            $sql = "UPDATE makeup SET name = '$this->updateName', brand = '$this->updateBrand', price = '$this->updatePrice' WHERE id = '$this->id'";
+            $result = $this->databaseManager->databaseconnection->prepare($sql);
+            $result->execute();
+            
+            echo 'testupdate';
+        }
 
     }
 
