@@ -30,14 +30,16 @@ class MakeupRepository
     public function get()
     {
         // replace dummy data by real one
-        return [
+        /* return [
             ['name' => 'Naked Heat', 'brand' => 'Urban Decay', 'price' => '55.90'],
             ['name' => 'Naked Honey', 'brand' => 'Urban Decay', 'price' => '55.90'],
-        ];
+        ]; */
 
         // We get the database connection first, so we can apply our queries with it
-
-        //return $this->databaseManager->database->query('SELECT * FROM makeup');
+        $sql = "SELECT * FROM makeup";
+        $data = $this->databaseManager->databaseconnection->query($sql);
+        var_dump($data);
+        return $data;
     }
 
     public function update()

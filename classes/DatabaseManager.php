@@ -10,7 +10,7 @@ class DatabaseManager
     private $password;
     // This one is public, so we can use it outside of this class
     // We could also use a private variable and a getter (but let's not make things too complicated at this point)
-    public $database="database";
+    public $databaseconnection;
 
     public function __construct(string $host, string $name, string $password)
     {
@@ -22,12 +22,14 @@ class DatabaseManager
     public function connect()
     {
         try {
-            $conn = new PDO("mysql:host=$this->host;dbname=$this->database", $this->name, $this->password);
+            $this->databaseconnection = new PDO("mysql:host=$this->host;port=3307;dbname=database", $this->name, $this->password);
             // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->databaseconnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connected successfully";
           } catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
           }
+
+        return $this->databaseconnection;
     }
 }
