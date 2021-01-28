@@ -20,9 +20,14 @@ $databaseManager->connect();
 // Update the naming if you'd like to work with another collection
 $makeupRepository = new MakeupRepository($databaseManager);
 $palettes = $makeupRepository->create();
-$palettes = $makeupRepository->get();
 
 
 // Load your view
 // Tip: you can load this dynamically and based on a variable, if you want to load another view
-require 'overview.php';
+if (!empty($_GET['update'])){
+    $palettes = $makeupRepository->update();
+    require 'edit.php';
+}else {
+    $palettes = $makeupRepository->get();
+    require 'overview.php';
+}
