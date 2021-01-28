@@ -62,9 +62,10 @@ class MakeupRepository
         header('Location:index.php');
     }
 
-    public function delete()
+    public function delete($id)
     {
-
+        $sql = "DELETE FROM makeup WHERE id = '$id'";
+        $this->databaseManager->databaseconnection->query($sql);
     }
 
 }

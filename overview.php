@@ -16,7 +16,8 @@
 	<ul>
 		<?php foreach ($palettes as $palette) : ?>
 			<li><?= $palette['name'].' - '.$palette['brand'].' - €'.$palette['price'].' - '?>
-			<a href="edit.php?editId=<?= $palette['id']?>&name=<?= $palette['name']?>&brand=<?= $palette['brand']?>&price=<?= $palette['price']?>" >edit</a>
+			<a href="edit.php?editId=<?= $palette['id']?>&name=<?= $palette['name']?>&brand=<?= $palette['brand']?>&price=<?= $palette['price']?>" >edit</a> - 
+			<a href="delete.php?editId=<?= $palette['id']?>" >delete</a>
 			</li>
 			
 		<?php endforeach; ?>
