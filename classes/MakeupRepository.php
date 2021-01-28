@@ -66,6 +66,8 @@ class MakeupRepository
     {
         $sql = "DELETE FROM makeup WHERE id = '$id'";
         $this->databaseManager->databaseconnection->query($sql);
+
+        header('Location: index.php');
     }
 
 }

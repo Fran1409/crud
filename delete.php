@@ -24,4 +24,3 @@ $palettes = $makeupRepository->get();
 $id = $_GET['editId'];
 $makeupRepository->delete($id);
 
-header('Location: index.php');
