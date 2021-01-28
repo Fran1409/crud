@@ -25,9 +25,9 @@ class DatabaseManager
             $this->databaseconnection = new PDO("mysql:host=$this->host;port=3307;dbname=database", $this->name, $this->password);
             // set the PDO error mode to exception
             $this->databaseconnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            //echo "Connected successfully";
           } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            //echo "Connection failed: " . $e->getMessage();
           }
 
         return $this->databaseconnection;
