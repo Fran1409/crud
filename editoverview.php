@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<a href="index.php">Home</a>
+<a href="index.php">Home</a><br><br>
 
 <h1>Change data:</h1>
 <form action="" method="post">

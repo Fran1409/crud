@@ -57,7 +57,9 @@ class MakeupRepository
     public function update($id, $updateName, $updateBrand, $updatePrice)
     {
         $sql = "UPDATE makeup SET name = '$updateName', brand = '$updateBrand', price = '$updatePrice' WHERE id = '$id'";
-        $this->databaseManager->databaseconnection->query($sql);              
+        $this->databaseManager->databaseconnection->query($sql);
+
+        header('Location:index.php');
     }
 
     public function delete()

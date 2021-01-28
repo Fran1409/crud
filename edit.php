@@ -28,7 +28,6 @@ if(!empty($_POST['edit'])){
     $id = $_GET['editId'];
 
     $makeupRepository->update($id, $updateName, $updateBrand, $updatePrice);
-    $makeupRepository->get();
 }
 
 require "editoverview.php";
